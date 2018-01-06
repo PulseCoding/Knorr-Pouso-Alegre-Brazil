@@ -34,8 +34,8 @@ var i=0;
 var PubNub = require('pubnub');
 
 var pubnub = new PubNub({
-  publishKey : "pub-c-0ed92489-2094-40f6-8ba8-73cd03f4487e",
-  subscribeKey : "sub-c-789a4f1c-bff6-11e7-888c-b22ca6e1970b",
+  publishKey : "pub-c-ac9f95b7-c3eb-4914-9222-16fbcaad4c59",
+  subscribeKey : "sub-c-206bed96-8c16-11e7-9760-3a607be72b06",
   uuid: "BRA_POU_FD1204"
 });
 
