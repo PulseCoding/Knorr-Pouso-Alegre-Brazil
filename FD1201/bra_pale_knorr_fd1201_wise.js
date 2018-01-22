@@ -293,7 +293,7 @@ client2.on('connect', function(err) {
       machine[4].counterOut = joinWord(resp.register[6], resp.register[7]) // Case Packer
       machine[5].counterEOL = joinWord(resp.register[6], resp.register[7]) // EOL
 
-      for (var i = 5; i <= 7; i++) {
+      for (var i = 2; i <= 5; i++) {
         machine[i].commOK = true
         machine[i].mainCounter  = machine[i].counterOut
         machine[i].mainSpeedCounter = machine[i].counterOut
