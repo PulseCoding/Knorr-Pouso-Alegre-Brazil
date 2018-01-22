@@ -5,7 +5,43 @@ var modbus = require('jsmodbus')
 var Directory = 'C:/Pulse/FD12-01_LOGS/'
 var numberOfMachines = 6
 var machine = []
-
+// >> Constructor de variables Logic Starts
+class MachineBuilder {
+  constructor() {
+    this.mainCounter    = 0
+    this.actualCounter  = 0
+    this.counterIn      = 'not used'
+    this.counterOut     = 'not used'
+    this.counterEOL     = 'not used'
+    this.state          = 2
+    this.actualState    = 2
+    this.timeStamp      = 0
+    this.saveTime       = 0
+    this.actualSaveTime = 0
+    this.secondsStop    = 0
+    this.timeStop       = 25
+    this.inFlowTime     = true
+    this.commOK         = false
+    this.pausePrint     = 0
+    this.speedSeconds   = 0
+    this.multiplePrintSeconds = 0
+    this.temporalSpeedCounter = 0
+    this.speed          = 0
+    this.speedTime      = 60
+    this.results        = null
+    this.ons0           = false
+    this.ons1           = false
+    this.ons2           = false
+    this.speedTimeStamp = 0
+    this.actualResults  = {
+                            CPQI : 0,
+                            CPQO : 0,
+                            EOL  : 0
+                          }
+    this.logName        = ''
+  }
+}
+// << Constructor de variables Logic Ends
 // Se crean todas las variables de las maquinas
 for (var i = 0; i < numberOfMachines; i++) {
   machine.push(new MachineBuilder())
@@ -295,40 +331,3 @@ var joinWord = function(num1, num2) {
   return parseInt(bits, 2)
 }
 // << Function Combine 2 Words Logic Ends
-// >> Constructor de variables Logic Starts
-class MachineBuilder {
-  constructor() {
-    this.mainCounter    = 0
-    this.actualCounter  = 0
-    this.counterIn      = 'not used'
-    this.counterOut     = 'not used'
-    this.counterEOL     = 'not used'
-    this.state          = 2
-    this.actualState    = 2
-    this.timeStamp      = 0
-    this.saveTime       = 0
-    this.actualSaveTime = 0
-    this.secondsStop    = 0
-    this.timeStop       = 25
-    this.inFlowTime     = true
-    this.commOK         = false
-    this.pausePrint     = 0
-    this.speedSeconds   = 0
-    this.multiplePrintSeconds = 0
-    this.temporalSpeedCounter = 0
-    this.speed          = 0
-    this.speedTime      = 60
-    this.results        = null
-    this.ons0           = false
-    this.ons1           = false
-    this.ons2           = false
-    this.speedTimeStamp = 0
-    this.actualResults  = {
-                            CPQI : 0,
-                            CPQO : 0,
-                            EOL  : 0
-                          }
-    this.logName        = ''
-  }
-}
-// << Constructor de variables Logic Ends
