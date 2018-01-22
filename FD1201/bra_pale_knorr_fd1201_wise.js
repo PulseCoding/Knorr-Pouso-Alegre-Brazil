@@ -277,7 +277,7 @@ var interval2
 var ons2 = 0
 
 var client2 = modbus.client.tcp.complete({
-  'host':             "192.168.10.105",
+  'host':             "192.168.10.91",
   'port':             502,
   'autoReconnect':    true,
   'timeout':          5000,
