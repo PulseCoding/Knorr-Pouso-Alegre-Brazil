@@ -19,7 +19,7 @@ class MachineBuilder {
     this.saveTime       = 0
     this.actualSaveTime = 0
     this.secondsStop    = 0
-    this.timeStop       = 25
+    this.timeStop       = 35
     this.inFlowTime     = true
     this.commOK         = false
     this.pausePrint     = 0
@@ -52,6 +52,7 @@ machine[1].logName    = 'bra_pou_Cartoner_FD12-01.log'
 machine[2].logName    = 'bra_pou_Encoder_FD12-01.log'
 machine[3].logName    = 'bra_pou_FillerDisplay_FD12-01.log'
 machine[4].logName    = 'bra_pou_CasePacker_FD12-01.log'
+machine[4].timeStop   = 80
 machine[5].logName    = 'bra_pou_EOL_FD12-01.log'
 machine[5].inFlowTime = false
 
@@ -332,7 +333,7 @@ var joinWord = function(num1, num2) {
 }
 // << Function Combine 2 Words Logic Ends
 
-// >> Pubnub
+// >> Pubnub Starts
 var files = fs.readdirSync(Directory)
 var text2send=[]
 var publishConfig
