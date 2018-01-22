@@ -101,7 +101,7 @@ function statesLogic() {
   } else {
     machinesInStop = 0
   }
-
+}
 // >> Counts Logic Start
 var secondsCounts = 0
 var timeStampCounts = 0
