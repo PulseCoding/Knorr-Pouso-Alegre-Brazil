@@ -331,3 +331,46 @@ var joinWord = function(num1, num2) {
   return parseInt(bits, 2)
 }
 // << Function Combine 2 Words Logic Ends
+
+// >> Pubnub
+var files = fs.readdirSync(Directory)
+var text2send=[]
+var publishConfig
+var PubNub = require('pubnub')
+
+var pubnub = new PubNub({
+  publishKey : "pub-c-ac9f95b7-c3eb-4914-9222-16fbcaad4c59",
+  subscribeKey : "sub-c-206bed96-8c16-11e7-9760-3a607be72b06",
+  uuid: "BRA_POU_FD1201"
+})
+
+function idle(){
+  i = 0
+  text2send = []
+  for (var k = 0 ; k < files.length ; k++ ) {
+    var stats = fs.statSync( Directory + files[k] )
+    var mtime = new Date(stats.mtime).getTime()
+    if (mtime < (Date.now() - (10*60*1000))) {
+      text2send[i] = files[k]
+      i++
+    }
+  }
+}
+
+function senderData(){
+  pubnub.publish(publishConfig, function(status, response) {})
+}
+
+var noty = setInterval(function(){
+      idle()
+      publishConfig = {
+        channel : "POU_Monitor",
+        message : {
+              line: "FD1201",
+              tt: Date.now(),
+              machines: text2send
+              }
+      }
+      senderData()
+   } , 300000)
+// << Pubnub ends
