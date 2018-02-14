@@ -533,9 +533,6 @@ function idle(){
                     Filler4speedTemp = Filler4ct;
                   }
                 }
-                if(Filler4state==2 && Filler4ctIn==0){
-                	Filler4state=3;
-                }
                 Filler4results = {
                   ST: Filler4state,
                   //CPQI: Filler4ctIn,
