@@ -247,6 +247,8 @@ function idle(){
           });
           client1.on('close', function() {
             clearInterval(cA1);
+            client1.close()
+            client1.connect()
           });
           client2.on('connect', function(err) {
 
@@ -467,6 +469,8 @@ function idle(){
           });
           client2.on('close', function() {
             clearInterval(cA2);
+            client2.close()
+            client2.connect()
           });
 var noty=setInterval(function(){
    if(secPubNub>=60*5){
